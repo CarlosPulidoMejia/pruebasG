@@ -1,0 +1,434 @@
+<div class="row">
+  <div class="col-12 mb-5">
+    <div class="card">
+      <div class="card-body">
+        <!--Filtro Recurso-->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Filtro de Recurso</h6>
+                <div class="row">
+                  <div class="col-3">
+                    <div class="form-floating">
+                      <select class="form-select" name="datasource">
+                        <option>Individual BIM [Individual]</option>
+                      </select>
+                      <label for="floatingSelect">Recurso</label>
+                    </div>
+                  </div>
+                  <div class="col-2 mt-3">
+                    <button type="button" class="btn btn-success">Buscar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--fin Filtro Recurso-->
+        <br>
+        <!-- Inicio Tabla Resumen -->
+        <div class="row" *ngIf="proyectos == true">
+          <div class="col-12">
+            <div class="">
+              <div class="card-body">
+                <h6 class="card-title">Resumen de gestión - Promedio Eficiencia 58% [Este es candidato a la evaluaciónd de desempeño]</h6>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="table-responsive">
+                      <table class="table" id="tablaResume">
+                        <thead class="table-success">
+                          <tr>
+                            <th scope="col">Aspecto</th>
+                            <th scope="col">Eficiencia</th>
+                            <th scope="col">221123</th>
+                            <th scope="col">291123</th>
+                            <th scope="col">061223</th>
+                            <th scope="col">201223</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Se registra trabajo devengado de los recursos en 10 proyectos de 11</td>
+                            <td >Gestión de recurso</td>
+                            <td >100 %</td>
+                            <td class="amarillo">100 %</td>
+                            <td class="rojo">91 %</td>
+                            <td class="rojo">82</td>
+                          </tr>
+                          <tr>
+                            <td>Se registra 3 proyectos en tiempo o por iniciar de 11</td>
+                            <td>Gestión de planeación</td>
+                            <td >27 %</td>
+                            <td class="amarillo">27 %</td>
+                            <td class="amarillo">27 %</td>
+                            <td class="amarillo">27 %</td>
+                          </tr>
+                          <tr>
+                            <td>Se registra avance en 6 proyectos de 10</td>
+                            <td>Gestión de avance</td>
+                            <td>72 %</td>
+                            <td class="amarillo">72 %</td>
+                            <td class="rojo">60 %</td>
+                            <td class="amarillo">60 %</td>
+                          </tr>
+                          <tr>
+                            <td>Se registra 7 proyectos de 11 con documentación</td>
+                            <td>Gestión de soporte documental</td>
+                            <td>63 %</td>
+                            <td class="amarillo">63 %</td>
+                            <td class="amarillo">63 %</td>
+                            <td class="amarillo">63 %</td>
+                          </tr>
+                          <tr>
+                            <th>Total</th>
+                            <td></td>
+                            <th>65.5 %</th>
+                            <th class="amarillo">65.5 %</th>
+                            <th class="rojo">60.25 %</th>
+                            <th class="rojo">58 %</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Tabla Resumen -->
+        <!-- Inicio Detalles -->
+        <div class="row">
+          <div class="col-12">
+            <div class="">
+              <div class="card-body">
+                <h6 class="card-title">Detalles</h6>
+                <div class="row">
+                  <!-- Botones Detalles -->
+                  <div class="col-4">
+                    <button type="button" class="btn btn-success" (click)="showProyectos()">Proyectos</button>
+                    <button type="button" class="btn btn-success mx-2" (click)="showTickets()">Tickets</button>
+                    <button type="button" class="btn btn-success" (click)="showReportes()">Resumen general</button>
+                  </div>
+                  <!-- Tabla Proyectos -->
+                  <div class="row mt-2" *ngIf="proyectos == true">
+                    <h6 class="card-title">Proyectos</h6>
+                    <div class="col-12">
+                      <div class="table-responsive" style="overflow-x: hidden; overflow-y: auto; height: 16em;">
+                        <table class="table" id="tablaProyectos">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Responsable</th>
+                              <th scope="col">Proyecto</th>
+                              <th scope="col">Hrs</th>
+                              <th scope="col">Fase</th>
+                              <th scope="col">Estado</th>
+                              <th scope="col">Tipo</th>
+                              <th scope="col">Dependencia</th>
+                              <th scope="col">% Avance</th>
+                              <th scope="col">Documentación</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <th>Marco Ruiz</th>
+                              <td style="width:200px;">PROY-607 Migración de Cartea Propia al SAH</td>
+                              <td>4</td>
+                              <td>Desarrollo</td>
+                              <td>Desfasado</td>
+                              <td>Killer</td>
+                              <td>Espera de Recurso - T</td>
+                              <td>69 a 71 %</td>
+                              <td>Plan Proyecto</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <th>Hector Garcia</th>
+                              <td style="width:200px;">PROY-607 Migración de Cartea Propia al SAH</td>
+                              <td>4</td>
+                              <td>Desarrollo</td>
+                              <td>Desfasado</td>
+                              <td>Killer</td>
+                              <td>Espera de Recurso - T</td>
+                              <td>69 a 71 %</td>
+                              <td>Plan Proyecto</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <th>Marco Ruiz</th>
+                              <td style="width:200px;">PROY-607 Migración de Cartea Propia al SAH</td>
+                              <td>4</td>
+                              <td>Desarrollo</td>
+                              <td>Desfasado</td>
+                              <td>Killer</td>
+                              <td>Espera de Recurso - T</td>
+                              <td>69 a 71 %</td>
+                              <td>Plan Proyecto</td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <th>Marco Ruiz</th>
+                              <td style="width:200px;">PROY-607 Migración de Cartea Propia al SAH</td>
+                              <td>4</td>
+                              <td>Desarrollo</td>
+                              <td>Desfasado</td>
+                              <td>Killer</td>
+                              <td>Espera de Recurso - T</td>
+                              <td>69 a 71 %</td>
+                              <td>Plan Proyecto</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Tabla Tickets -->
+                  <div class="row mt-2" *ngIf="tickets == true">
+                    <h6 class="card-title">Ticket</h6>
+                    <div class="col-12">
+                      <div class="table-responsive" style="overflow-x: hidden; overflow-y: auto; height: 16em;">
+                        <table class="table" id="tablaProyectos">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Responsable</th>
+                              <th scope="col">Tickets</th>
+                              <th scope="col">Hrs</th>
+                              <th scope="col">Tipo</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <th>Marco Ruiz</th>
+                              <td>
+                                <p>Buena tarde  Solictando su apoyo para fijar
+                                  el valor de la UDI al día 10 de dic 23 en SAH 
+                                  para validar la apertura</p>
+                              </td>
+                              <td>2</td>
+                              <td>Incidente Controlado</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <th>Marco Ruiz</th>
+                              <td>
+                                <p>Buena noche Por favor de su apoyo con las
+                                  correcciones indicadas. Gracias
+                                </p>
+                              </td>
+                              <td>2</td>
+                              <td>Incidente Controlado</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <th>Marco Ruiz</th>
+                              <td>
+                                <p>Buena noche Por favor de su apoyo con las
+                                  correcciones indicadas. Gracias
+                                </p>
+                              </td>
+                              <td>2</td>
+                              <td>Incidente Controlado</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Tablas Resumen General -->
+                  <div class="row mt-2" *ngIf="resumen == true">
+                    <h6 class="card-title">Resumen General</h6>
+                    <!--Trabajo Devengado-->
+                    <div class="col-6">
+                      <br>
+                      <h6>Trabajo Devengado</h6> 
+                      <div class="table-responsive" style="overflow-x: hidden; overflow-y: auto; height: 12em;">
+                        <table class="table" id="tablaTrabajoDevengado">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">Recurso</th>
+                              <th scope="col">Hrs/Semana</th>
+                              <th scope="col">Hrs día</th>
+                              <th scope="col">Hrs Ticket</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <th class="">Marco Ruiz</th>
+                              <td class="">48.5</td>
+                              <td class="">7.9</td>
+                              <td class="">9</td>
+                            </tr>
+                            <tr class="odd">
+                              <th class="">Marco Ruiz</th>
+                              <td class="">48.5</td>
+                              <td class="">7.9</td>
+                              <td class="">9</td>
+                            </tr>
+                            <tr class="odd">
+                              <th class="">Marco Ruiz</th>
+                              <td class="">48.5</td>
+                              <td class="">7.9</td>
+                              <td class="">9</td>
+                            </tr>
+                            <tr class="odd">
+                              <th class="">Marco Ruiz</th>
+                              <td class="">48.5</td>
+                              <td class="">7.9</td>
+                              <td class="">9</td>
+                            </tr>
+                            <tr class="odd">
+                              <th class="">Marco Ruiz</th>
+                              <td class="">48.5</td>
+                              <td class="">7.9</td>
+                              <td class="">9</td>
+                            </tr>
+                            <tr class="odd">
+                              <th class="">Marco Ruiz</th>
+                              <td class="">48.5</td>
+                              <td class="">7.9</td>
+                              <td class="">9</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--Tipo-Proyecto | BAU-->
+                    <div class="col-6">
+                      <br>
+                      <h6 class="card-title">Tipo-Proyecto | BAU</h6> 
+                      <div class="table-responsive">
+                        <table class="table" id="tablaProyectos">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">Proyectos|BAU</th>
+                              <th scope="col">BAU-Nuevo</th>
+                              <th scope="col">BAU-Mejora</th>
+                              <th scope="col">Proyecto</th>
+                              <th scope="col">Killer</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <th class="">11</th>
+                              <td class="">0</td>
+                              <td class="">6</td>
+                              <td class="">0</td>
+                              <td class="">5</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--Fase-Proyectos-->
+                    <div class="col-6 mt-4">
+                      <h6>Fase-Proyectos</h6> 
+                      <div class="table-responsive">
+                        <table class="table" id="tablaTrabajoDevengado">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">Análisis</th>
+                              <th scope="col">Desarrollo</th>
+                              <th scope="col">Pruebas</th>
+                              <th scope="col">Calidad</th>
+                              <th scope="col">Producción</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <td class="">3</td>
+                              <td class="">5</td>
+                              <td class="">0</td>
+                              <td class="">3</td>
+                              <td class="">0</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--Estado-Proyectos-->
+                    <div class="col-6 mt-4">
+                      <h6>Estado-Proyectos</h6> 
+                      <div class="table-responsive">
+                        <table class="table" id="tablaTrabajoDevengado">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">Por Iniciar</th>
+                              <th scope="col">Tiempo</th>
+                              <th scope="col">Detenido</th>
+                              <th scope="col">Desfasado</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <td class="">0</td>
+                              <td class="">3</td>
+                              <td class="">0</td>
+                              <td class="">8</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--Documentación-->
+                    <div class="col-6 mt-4">
+                      <h6>Documentación</h6> 
+                      <div class="table-responsive">
+                        <table class="table" id="tablaTrabajoDevengado">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">RI | RD</th>
+                              <th scope="col">Ticket</th>
+                              <th scope="col">Plan Proyecto</th>
+                              <th scope="col">Sin gestión</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <td class="">4</td>
+                              <td class="">0</td>
+                              <td class="">3</td>
+                              <td class="">4</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <!--Tipo-Ticket-->
+                    <div class="col-6 mt-4">
+                      <h6>Tipo-Ticket</h6> 
+                      <div class="table-responsive">
+                        <table class="table" id="tablaTrabajoDevengado">
+                          <thead class="table-success" style="position: sticky; top: 0;">
+                            <tr>
+                              <th scope="col">Ticket</th>
+                              <th scope="col">Bloqueante</th>
+                              <th scope="col">Normal</th>
+                              <th scope="col">Recurente</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="odd">
+                              <td class="">10</td>
+                              <td class="">0</td>
+                              <td class="">0</td>
+                              <td class="">0</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fin Detalles -->
+      </div>
+    </div>
+  </div>
