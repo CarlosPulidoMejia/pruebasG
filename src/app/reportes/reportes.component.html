@@ -106,13 +106,14 @@
                 <h6 class="card-title">Detalles</h6>
                 <div class="row">
                   <!-- Botones Detalles -->
-                  <div class="col-4">
+                  <div class="col-6">
                     <button type="button" class="btn btn-success" (click)="showProyectos()">Proyectos</button>
                     <button type="button" class="btn btn-success mx-2" (click)="showTickets()">Tickets</button>
                     <button type="button" class="btn btn-success" (click)="showReportes()">Resumen general</button>
+                    <button type="button" class="btn btn-success mx-2" (click)="showGrafica()">Gráficas</button>
                   </div>
                   <!-- Tabla Proyectos -->
-                  <div class="row mt-2" *ngIf="proyectos == true">
+                  <div class="row mt-2" *ngIf="proyectos == true" >
                     <h6 class="card-title">Proyectos</h6>
                     <div class="col-12">
                       <div class="table-responsive" style="overflow-x: hidden; overflow-y: auto; height: 16em;">
@@ -186,7 +187,7 @@
                     </div>
                   </div>
                   <!-- Tabla Tickets -->
-                  <div class="row mt-2" *ngIf="tickets == true">
+                  <div class="row mt-2" *ngIf="tickets == true" >
                     <h6 class="card-title">Ticket</h6>
                     <div class="col-12">
                       <div class="table-responsive" style="overflow-x: hidden; overflow-y: auto; height: 16em;">
@@ -240,7 +241,7 @@
                     </div>
                   </div>
                   <!-- Tablas Resumen General -->
-                  <div class="row mt-2" *ngIf="resumen == true">
+                  <div class="row mt-2" *ngIf="resumen == true" >
                     <h6 class="card-title">Resumen General</h6>
                     <!--Trabajo Devengado-->
                     <div class="col-6">
@@ -421,6 +422,29 @@
                           </tbody>
                         </table>
                       </div>
+                    </div>
+                  </div>
+                  <div class="row mt-2"  *ngIf="grafica == true">
+                    <h6 class="">Gráficas</h6>
+                    <div class="col-6">
+                      <h6 class="mt-5">Proyectos</h6>
+                      <ngx-charts-polar-chart class="border border-1"
+                      [view]="view"
+                      [xAxis]="xAxis"
+                      [yAxis]="yAxis"
+                      [results]="multi"
+                      >
+                      </ngx-charts-polar-chart>
+                    </div>
+                    <div class="col-6">
+                      <h6 class="mt-5">Tickets</h6>
+                      <ngx-charts-polar-chart
+                      [view]="view"
+                      [xAxis]="xAxis"
+                      [yAxis]="yAxis"
+                      [results]="multidos"
+                      >
+                      </ngx-charts-polar-chart>
                     </div>
                   </div>
                 </div>
